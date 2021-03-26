@@ -1,0 +1,104 @@
+ventas = {}
+respuesta = 1
+venta_activa = True
+costo_cintas = 50
+costo_tornillos = 40
+costo_martillos = 100
+
+while venta_activa:
+    print("BIENVENIDO A LA FERRETERIA")
+    print("")
+    print("Bienvenido a nuestro menu virtual")
+    print("")
+    print("MENU PRINCIPAL")
+    print("1.- Registrar una venta")
+    print("2.- Consultar una venta")
+    print("3.- Salir")
+    print("")
+    eleccion_tomada = int(input("Ingresa una opcion: "))
+    if eleccion_tomada == 1:
+        venta_activa_1 = True
+        while venta_activa_1:
+            print("Articulos disponibles")
+            print("1.-Cintas adhesivas- PRECIO:50")
+            print("2.-Tornillos- PRECIO: 40")
+            print("3.-Martillos- PRECIO: 100")
+            print("")
+            while respuesta == 1:
+                if ventas:
+                    clave_venta = max(ventas) + 1
+                else:
+                    clave_venta = 1
+                        
+                numero_articulo = int(input("Dime el numero de lo que deseas comprar: "))
+                if numero_articulo == 1:
+                    nombre_articulo = "Cinta Adhesiva"
+                    print("")
+                    piezas_cintas = int(input("Cuantas piezas deseas comprar de cintas adhesivas: "))
+                    registro_venta = [nombre_articulo,piezas_cintas]
+                    ventas[clave_venta] = registro_venta
+                    print("")
+                    print(f"Compraste {piezas_cintas} piezas de cinta adhesiva y el costo final fue de {piezas_cintas * costo_cintas} pesos.")
+                    print("")
+                    print(f"\nSe agregaron los datos:\n {registro_venta} con la clave {clave_venta}")
+                    print("")
+                    respuesta = int(input("Deseas realizar otra compra \n (1-Si / 2-No): "))
+                    if respuesta == 2:
+                        venta_activa_1 = False
+                    else: 
+                        print("")
+                elif numero_articulo == 2:
+                    nombre_articulo = "Tornillos"
+                    print("")
+                    piezas_tornillos = int(input("Cuantas piezas deseas comprar de tornillos: "))
+                    print("")
+                    registro_venta = [nombre_articulo,piezas_tornillos]
+                    ventas[clave_venta] = registro_venta
+                    print("")
+                    print(f"Compraste {piezas_tornillos} piezas de tornillos y el costo final fue de {piezas_tornillos * costo_tornillos} pesos.")
+                    print("")
+                    print(f"\nSe agregaron los datos:\n {registro_venta} con la clave {clave_venta}")
+                    print("")
+                    respuesta = int(input("Deseas realizar otra compra \n (1-Si / 2-No): "))
+                    if respuesta == 2:
+                        venta_activa_1 = False
+                    else: 
+                        print("")
+                elif numero_articulo == 3:
+                    nombre_articulo = "Martillo"
+                    print("")
+                    piezas_martillo = int(input("Cuantas piezas deseas comprar de martillos: "))
+                    print("")
+                    registro_venta = [nombre_articulo,piezas_martillo]
+                    ventas[clave_venta] = registro_venta
+                    print("")
+                    print(f"Compraste {piezas_martillo} piezas de martillos y el costo final fue de {piezas_martillo * costo_martillos} pesos.")
+                    print("")
+                    print(f"\nSe agregaron los datos:\n {registro_venta} con la clave {clave_venta}")
+                    print("")
+                    respuesta = int(input("Deseas realizar otra compra \n (1-Si / 2-No): "))
+                    if respuesta == 2:
+                        venta_activa_1 = False
+                    else:
+                        print("")
+                else:
+                    print("")
+    elif eleccion_tomada == 2:
+        clave_buscar = int(input("Ingresa la clave de la compra que realizaste: "))
+
+        if clave_buscar in ventas.keys():
+            print("Los datos de la venta son: [NOMBRE ARTICULO / NUMERO DE ARTICULOS]")
+            print(ventas[clave_buscar])
+            print("")
+            print("")
+        else:
+            print("Esa clave no esta registrada")
+    elif eleccion_tomada == 3:
+        print("")
+        print("Muchas gracias por su preferencia")
+        venta_activa = False                
+    else:
+        print("Opcion invalida, intente nuevamente porfavor")
+        
+
+
